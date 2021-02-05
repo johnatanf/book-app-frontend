@@ -12,14 +12,15 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import NavBar from './components/NavBar';
+import Container from 'react-bootstrap/Container';
 
 const App = () => {
   
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(null);
   
   return (
     <Router>
-      <div>
+      <Container>
         <NavBar user={user} />
 
         <Switch>
@@ -32,7 +33,7 @@ const App = () => {
             { user ? <Redirect to='/books' /> : <Home /> }
           </Route>
         </Switch>
-      </div>
+      </Container>
     </Router>
   );
 }

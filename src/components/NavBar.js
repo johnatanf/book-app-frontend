@@ -5,6 +5,9 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Navbar from 'react-bootstrap/NavBar';
+import Nav from 'react-bootstrap/Nav';
+
 
 // if user is not null 
 // 	books (default) 
@@ -15,39 +18,74 @@ import {
 // 	login 
 // 	sign up 
 
+
+
 const NavBar = props => {
   return (
-    <nav>
-      { props.user ? 
+    <Navbar bg="light" variant="light">
+      <Navbar.Brand href="#home">Book App</Navbar.Brand>
+      { props.user ?
       (
-        <ul>
-          <li>
+        <Nav className="ml-auto">
+          <Nav.Link as='span'>
             <Link to='/search'>Search</Link>
-          </li>
-          <li>
+          </Nav.Link>
+          <Nav.Link as='span'>
             <Link to='/books'>Books</Link>
-          </li>
-          <li>
+          </Nav.Link>
+          <Nav.Link as='span'>
             <Link to='/books/12345'>Specific Book</Link>
-          </li>          
-        </ul>
+          </Nav.Link>
+        </Nav>
       )
       :
       (
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/login'>Login</Link>
-        </li>
-        <li>
-          <Link to='/signup'>Sign Up</Link>
-        </li>
-      </ul>
+        <Nav className="ml-auto">
+          <Nav.Link as='span'>
+            <Link to='/'>Home</Link>
+          </Nav.Link>
+          <Nav.Link as='span'>
+            <Link to='/login'>Login</Link>
+          </Nav.Link>
+          <Nav.Link as='span'>
+            <Link to='/signup'>Sign Up</Link>
+          </Nav.Link>
+        </Nav>
       )
       }
-    </nav>
+    </Navbar>
+
+    // <nav>
+    //   { props.user ? 
+    //   (
+    //     <ul>
+    //       <li>
+    //         <Link to='/search'>Search</Link>
+    //       </li>
+    //       <li>
+    //         <Link to='/books'>Books</Link>
+    //       </li>
+    //       <li>
+    //         <Link to='/books/12345'>Specific Book</Link>
+    //       </li>          
+    //     </ul>
+    //   )
+    //   :
+    //   (
+    //   <ul>
+    //     <li>
+    //       <Link to='/'>Home</Link>
+    //     </li>
+    //     <li>
+    //       <Link to='/login'>Login</Link>
+    //     </li>
+    //     <li>
+    //       <Link to='/signup'>Sign Up</Link>
+    //     </li>
+    //   </ul>
+    //   )
+    //   }
+    // </nav>
   )
 }
 
