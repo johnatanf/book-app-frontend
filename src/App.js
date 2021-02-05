@@ -5,6 +5,12 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Book from './components/Books/Book';
+import Books from './components/Books/Books';
+import BookSearcher from './components/BookSearcher/BookSearcher';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import SignUp from './components/SignUp/SignUp';
 
 const App = () => {
   return (
@@ -44,30 +50,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
-
-const Home = () => {
-  return <h2>Home</h2>;
-}
-
-const Login = () => {
-  return <h2>Login</h2>;
-}
-
-const SignUp = () => {
-  return <h2>Sign Up</h2>;
-}
-
-const BookSearcher = () => {
-  return <h2>Search</h2>;
-}
-
-const Books = () => {
-  return <h2>Books</h2>;
-}
-
-const Book = () => {
-  return <h2>Specific Book</h2>;
 }
 
 export default App;
