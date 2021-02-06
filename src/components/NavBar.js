@@ -1,24 +1,7 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/NavBar';
 import Nav from 'react-bootstrap/Nav';
-
-
-// if user is not null 
-// 	books (default) 
-// 	search 
-// 	log out 
-// if user is null 
-// 	home (default) 
-// 	login 
-// 	sign up 
-
-
 
 const NavBar = props => {
   return (
@@ -54,38 +37,6 @@ const NavBar = props => {
       )
       }
     </Navbar>
-
-    // <nav>
-    //   { props.user ? 
-    //   (
-    //     <ul>
-    //       <li>
-    //         <Link to='/search'>Search</Link>
-    //       </li>
-    //       <li>
-    //         <Link to='/books'>Books</Link>
-    //       </li>
-    //       <li>
-    //         <Link to='/books/12345'>Specific Book</Link>
-    //       </li>          
-    //     </ul>
-    //   )
-    //   :
-    //   (
-    //   <ul>
-    //     <li>
-    //       <Link to='/'>Home</Link>
-    //     </li>
-    //     <li>
-    //       <Link to='/login'>Login</Link>
-    //     </li>
-    //     <li>
-    //       <Link to='/signup'>Sign Up</Link>
-    //     </li>
-    //   </ul>
-    //   )
-    //   }
-    // </nav>
   )
 }
 

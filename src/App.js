@@ -12,6 +12,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import Container from 'react-bootstrap/Container';
 
 const App = () => {
@@ -20,9 +21,8 @@ const App = () => {
   
   return (
     <Router>
+      <NavBar user={user} />
       <Container>
-        <NavBar user={user} />
-
         <Switch>
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
@@ -34,6 +34,7 @@ const App = () => {
           </Route>
         </Switch>
       </Container>
+      <Footer />
     </Router>
   );
 }
