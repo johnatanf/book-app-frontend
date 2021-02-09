@@ -4,16 +4,23 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import loginService from '../../services/login';
 
-const Login = () => {
+const Login = props => {
   
   let history = useHistory();
 
   const handleSubmit = async event => {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
-    const response = await loginService.login(username, password);
-    console.log(response);
+    try {
+      event.preventDefault();
+      const username = event.target.username.value;
+      const password = event.target.password.value;
+      await loginService.login(username, password);
+      history.push('/');
+      props.setUser({ username });
+    } catch (error) {
+      console.log(error);
+      event.target.username.value = ''
+      event.target.password.value = ''
+    }
   }
   
   return (

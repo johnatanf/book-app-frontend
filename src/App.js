@@ -41,7 +41,7 @@ const App = () => {
             { !user ? <Redirect to='/' /> : <Books /> }
           </Route>
           <Route path='/login'>
-            { user ? <Redirect to='/books' /> : <Login /> }
+            { user ? <Redirect to='/books' /> : <Login setUser={setUser} /> }
           </Route>
           <Route path='/signup'>
             { user ? <Redirect to ='/books' /> : <SignUp /> }
