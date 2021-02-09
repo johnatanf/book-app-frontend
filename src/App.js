@@ -46,7 +46,7 @@ const App = () => {
   
   return (
     <Router>
-      <NavBar user={user} />
+      <NavBar user={user} setUser={setUser} flashNotification={flashNotification}/>
       <Container>
         <Notification notification={ notification } />
         <Switch>
@@ -56,14 +56,14 @@ const App = () => {
           <Route path='/books/:id'>
             { !user ? <Redirect to='/' /> : <Book /> }
           </Route>
-          <Route path='/books' component={Books}>
+          <Route path='/books'>
             { !user ? <Redirect to='/' /> : <Books /> }
           </Route>
           <Route path='/login'>
-            { user ? <Redirect to='/books' /> : <Login setUser={setUser} flashNotification={flashNotification}/> }
+            { user ? <Redirect to='/books' /> : <Login setUser={setUser} flashNotification={flashNotification} /> }
           </Route>
           <Route path='/signup'>
-            { user ? <Redirect to ='/books' /> : <SignUp /> }
+            { user ? <Redirect to ='/books' /> : <SignUp flashNotification={flashNotification} /> }
           </Route>
           <Route path='/'>
             { user ? <Redirect to='/books' /> : <Home /> }

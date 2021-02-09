@@ -1,9 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Navbar from 'react-bootstrap/NavBar';
 import Nav from 'react-bootstrap/Nav';
+import logoutService from '../services/logout';
 
 const NavBar = props => {
+
+  let history = useHistory();
+
+  const handleLogout = async () => {
+    try {
+      await logoutService.logout()
+      props.setUser(null)
+      history.push('/');
+    } catch (error) {
+      props.flashNotification('Failed to log out. Please try again later.', false)
+    }
+  }
+
   return (
     <Navbar bg="light" variant="light">
       <Link to={ props.user ? '/books' : '/'}>
@@ -21,6 +35,14 @@ const NavBar = props => {
           <Nav.Link as='span'>
             <Link to='/books/12345'>Specific Book</Link>
           </Nav.Link>
+          <Nav.Link 
+            onClick={handleLogout}
+          >
+            Logout
+          </Nav.Link>
+          <Navbar.Text className='ml-5'>
+            Signed in as {props.user.username}
+          </Navbar.Text>
         </Nav>
       )
       :
