@@ -17,7 +17,7 @@ const Login = props => {
       history.push('/');
       props.setUser({ username });
     } catch (error) {
-      console.log(error);
+      props.flashNotification('Incorrect username/password.');
       event.target.username.value = ''
       event.target.password.value = ''
     }

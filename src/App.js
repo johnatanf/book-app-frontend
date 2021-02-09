@@ -14,11 +14,29 @@ import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import Notification from './components/Notification';
 import Container from 'react-bootstrap/Container';
 
 const App = () => {
   
   const [user, setUser] = useState(null);
+  const [notification, setNotification] = useState({ message: null, success: null });
+  const [notificationTimerId, setNotificationTimerId] = useState(null);
+
+  const flashNotification = (message, success) => {
+    if (notificationTimerId) {
+      clearTimeout(notificationTimerId);
+      setNotificationTimerId(null);
+    }
+
+    setNotification({ message, success })
+
+    const timerId = setTimeout(() => {
+      setNotification({ message: null, success: null });
+    }, 5000)
+
+    setNotificationTimerId(timerId);
+  }
 
   useEffect(() => {
     usersService.checkLoggedIn()
@@ -30,6 +48,7 @@ const App = () => {
     <Router>
       <NavBar user={user} />
       <Container>
+        <Notification notification={ notification } />
         <Switch>
           <Route path='/search'>
             { !user ? <Redirect to='/' /> : <BookSearcher /> }
@@ -41,7 +60,7 @@ const App = () => {
             { !user ? <Redirect to='/' /> : <Books /> }
           </Route>
           <Route path='/login'>
-            { user ? <Redirect to='/books' /> : <Login setUser={setUser} /> }
+            { user ? <Redirect to='/books' /> : <Login setUser={setUser} flashNotification={flashNotification}/> }
           </Route>
           <Route path='/signup'>
             { user ? <Redirect to ='/books' /> : <SignUp /> }
