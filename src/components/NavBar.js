@@ -6,7 +6,9 @@ import Nav from 'react-bootstrap/Nav';
 const NavBar = props => {
   return (
     <Navbar bg="light" variant="light">
-      <Navbar.Brand href="#home">Book App</Navbar.Brand>
+      <Link to={ props.user ? '/books' : '/'}>
+        <Navbar.Brand as='span'>Book App</Navbar.Brand>
+      </Link>
       { props.user ?
       (
         <Nav className="ml-auto">
