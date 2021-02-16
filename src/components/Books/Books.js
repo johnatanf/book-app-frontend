@@ -25,7 +25,7 @@ const Books = () => {
         {
           books
             .filter(book => book.read === false)
-            .map(book => <BookGrid book={book}/>)
+            .map(book => <BookGrid key={book._id} book={book}/>)
         }
       </Row>
       <h3>Already read</h3>
@@ -33,7 +33,7 @@ const Books = () => {
         {
           books
             .filter(book => book.read)
-            .map(book => <BookGrid book={book}/>)
+            .map(book => <BookGrid key={book._id} book={book}/>)
         }
       </Row>
     </>
