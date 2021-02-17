@@ -13,7 +13,7 @@ const Books = ({ flashNotification }) => {
         setBooks(res.data.map(book => {
           return {
             ...book,
-            alreadyAdded: true,
+            alreadyAdded: true, // necessary to make buttons display as 'view' rather than 'add'
           }
         }));
       })

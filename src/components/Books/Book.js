@@ -19,8 +19,6 @@ const Book = props => {
       })
   }, [])
 
-  // FIX BACKEND 
-
   return (
     <>
       <h2>Specific Book id: { match.params.id }</h2>
