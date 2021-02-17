@@ -32,9 +32,6 @@ const NavBar = props => {
           <Nav.Link as='span'>
             <Link to='/books'>Books</Link>
           </Nav.Link>
-          <Nav.Link as='span'>
-            <Link to='/books/12345'>Specific Book</Link>
-          </Nav.Link>
           <Nav.Link 
             onClick={handleLogout}
           >

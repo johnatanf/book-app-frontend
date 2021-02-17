@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import searchService from '../../services/search';
 import Row from 'react-bootstrap/Row';
 
-const BookSearcher = () => {
+const BookSearcher = ({ flashNotification }) => {
 
   const [searchedBooks, setSearchedBooks] = useState([]);
   
@@ -29,7 +29,7 @@ const BookSearcher = () => {
         ?
         (
           <Row>
-            {searchedBooks.map(book => <BookGrid key={book.googleBookId} book={book} />)}
+            {searchedBooks.map(book => <BookGrid key={book.googleBookId} book={book} flashNotification={flashNotification} />)}
           </Row>
         )
         :

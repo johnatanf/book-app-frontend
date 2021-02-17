@@ -3,17 +3,22 @@ import BookGrid from './BookGrid';
 import booksService from '../../services/books';
 import Row from 'react-bootstrap/Row';
 
-const Books = () => {
+const Books = ({ flashNotification }) => {
 
   const [books, setBooks] = useState([]);
   
   useEffect(() => {
     booksService.retrieveBooks()
       .then(res => {
-        setBooks(res.data);
+        setBooks(res.data.map(book => {
+          return {
+            ...book,
+            alreadyAdded: true,
+          }
+        }));
       })
       .catch(err => {
-        console.log(err)
+        flashNotification('Failed to retrieve books. Please reload the page and try again.', false);
       })
   }, [])
   
