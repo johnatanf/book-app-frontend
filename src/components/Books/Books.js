@@ -10,12 +10,7 @@ const Books = ({ flashNotification }) => {
   useEffect(() => {
     booksService.retrieveBooks()
       .then(res => {
-        setBooks(res.data.map(book => {
-          return {
-            ...book,
-            alreadyAdded: true, // necessary to make buttons display as 'view' rather than 'add'
-          }
-        }));
+        setBooks(res);
       })
       .catch(err => {
         flashNotification('Failed to retrieve books. Please reload the page and try again.', false);

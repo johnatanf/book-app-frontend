@@ -8,7 +8,7 @@ const retrieveBooks = async () => {
     url: baseUrl,
     withCredentials: true,
   })
-  return response;
+  return response.data;
 }
 
 const retrieveSpecificBook = async (id) => {

@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 const BookSearcher = ({ flashNotification }) => {
 
   const [searchedBooks, setSearchedBooks] = useState([]);
+  const [query, setQuery] = useState('');
   
   const handleSubmit = async event => {
     event.preventDefault();
@@ -19,7 +20,7 @@ const BookSearcher = ({ flashNotification }) => {
     <>
       <h2>Search</h2>
       <Form inline onSubmit={handleSubmit}>
-        <Form.Control id='search' size="lg" type="text" placeholder="Search..." />
+        <Form.Control onChange={event => setQuery(event.target.value)} value={query} id='search' size="lg" type="text" placeholder="Search..." />
         <Button type="submit" className="mb-2">
           Search
         </Button>
@@ -29,7 +30,15 @@ const BookSearcher = ({ flashNotification }) => {
         ?
         (
           <Row>
-            {searchedBooks.map(book => <BookGrid key={book.googleBookId} book={book} flashNotification={flashNotification} />)}
+            {searchedBooks.map(book => 
+              <BookGrid 
+                key={book.googleBookId} 
+                book={book}
+                query={query}
+                setSearchedBooks={setSearchedBooks}
+                flashNotification={flashNotification} 
+              />
+            )}
           </Row>
         )
         :
