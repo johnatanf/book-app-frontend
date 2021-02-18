@@ -7,7 +7,7 @@ const Notification = props => {
       className={`${!props.notification.message ? 'invisible' : ''} mt-3`} 
       variant={`${props.notification.success ? 'primary' : 'danger'}`}
     >
-      { props.notification.message }
+      { props.notification.message ? props.notification.message : '&nbsp' } 
     </Alert>
   )
 }
