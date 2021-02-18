@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -9,6 +9,7 @@ import notAvailableImage from '../../assets/image-not-available.png';
 
 const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
 
+  const match = useRouteMatch();
   let history = useHistory();
 
   const handleAdd = async event => {
@@ -53,7 +54,7 @@ const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
             <Card.Subtitle className="mb-3">{book.authors ? book.authors.join(', ') : ''}</Card.Subtitle>
           </div>
           <div>
-            { book._id ? <Card.Subtitle className="mb-3 text-muted">Already in reading list</Card.Subtitle> : null }
+            { book._id && match.path === '/search' ? <Card.Subtitle className="mb-3 text-muted">Already in reading list</Card.Subtitle> : null }
             { book._id ? <Button onClick={handleView} className='mt-3' variant="primary">View</Button> : null } 
             { !book._id ? <Button onClick={handleAdd} className='mt-3' variant="primary">Add</Button> : null } 
           </div>
