@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from '../config/config';
 
-const baseUrl = 'http://localhost:3001/users'
+const baseUrl = `${config.baseUrl}/users`;
 
 const checkLoggedIn = async () => {
   try {

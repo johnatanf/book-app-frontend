@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from '../config/config';
 
-const baseUrl = 'http://localhost:3001/logout'
+const baseUrl = `${config.baseUrl}/logout`
 
 const logout = async () => {
   try {

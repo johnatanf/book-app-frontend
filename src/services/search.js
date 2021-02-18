@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from '../config/config';
 
-const baseUrl = 'http://localhost:3001/search'
+const baseUrl = `${config.baseUrl}/search`;
 
 const search = async (query) => {
   try {

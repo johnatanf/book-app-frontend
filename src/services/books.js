@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from '../config/config';
 
-const baseUrl = 'http://localhost:3001/books'
+const baseUrl = `${config.baseUrl}/books`
 
 const retrieveBooks = async () => {
   const response = await axios({
