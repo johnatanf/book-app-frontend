@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -38,7 +38,7 @@ const App = () => {
     setNotificationTimerId(timerId);
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     usersService.checkLoggedIn()
       .then(response => setUser(response))
       .catch(error => setUser(null));
@@ -54,7 +54,7 @@ const App = () => {
             { !user ? <Redirect to='/' /> : <BookSearcher flashNotification={flashNotification} /> }
           </Route>
           <Route path='/books/:id'>
-            { !user ? <Redirect to='/' /> : <Book flashNotification={flashNotification} /> }
+            { !user ? <Redirect to='/' /> : <Book /> }
           </Route>
           <Route path='/books'>
             { !user ? <Redirect to='/' /> : <Books flashNotification={flashNotification} /> }
