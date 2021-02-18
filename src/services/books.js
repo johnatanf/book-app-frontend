@@ -46,8 +46,23 @@ const addBookToReadingList = async (googleBookId, title, subtitle, authors, book
   }
 }
 
+const deleteBook = async (id) => {
+  try {
+    const response = await axios({
+      method: 'delete',
+      url: `${baseUrl}/${id}`,
+      withCredentials: true,
+    })
+    return response.status;
+  } catch (error) {
+    if (error.response.data) throw error.response.data;
+    throw error;
+  }
+}
+
 export default {
   retrieveBooks,
   retrieveSpecificBook,
   addBookToReadingList,
+  deleteBook,
 }

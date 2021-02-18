@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import booksServices from '../../services/books';
-import searchServices from '../../services/search';
+import booksService from '../../services/books';
+import searchService from '../../services/search';
 
 const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
 
@@ -12,18 +12,18 @@ const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
 
   const handleAdd = async event => {
     try {
+      event.preventDefault();
       if (event.target.classList.contains('disabled')) return;
       event.target.classList.add('disabled');
-      event.preventDefault();
       const { googleBookId, title, subtitle, authors, bookCoverUrl } = book;
-      await booksServices.addBookToReadingList(
+      await booksService.addBookToReadingList(
         googleBookId,
         title,
         subtitle,
         authors,
         bookCoverUrl
       );
-      const updatedBooks = await searchServices.search(query);
+      const updatedBooks = await searchService.search(query);
       setSearchedBooks(updatedBooks);
       flashNotification('Successfully added book to reading list!', true);
     } catch (error) {
