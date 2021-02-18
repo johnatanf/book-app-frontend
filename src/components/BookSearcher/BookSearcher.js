@@ -20,7 +20,7 @@ const BookSearcher = ({ flashNotification }) => {
   
   return (
     <>
-      <Row>
+      <Row className='mb-3'>
         <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
           <Card className='p-3'>
             <Form onSubmit={handleSubmit} className='d-flex'>
@@ -36,7 +36,7 @@ const BookSearcher = ({ flashNotification }) => {
       { searchedBooks.length 
       ? <Row>
           <Col className='mb-3' sm={{ span: 12 }}>
-            <h3>Reading list</h3>
+            <h3>Search results</h3>
           </Col>
         </Row>
       : null }
