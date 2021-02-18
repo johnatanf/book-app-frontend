@@ -14,6 +14,23 @@ const Book = ({ flashNotification }) => {
   const match = useRouteMatch('/books/:id');
   let history = useHistory();
 
+  const handleReadChange = async event => {
+    try {
+      event.preventDefault();
+      if (event.target.classList.contains('disabled')) return;
+      event.target.classList.add('disabled');
+      await booksService.toggleRead(match.params.id, book.read);
+      setBook({
+        ...book,
+        read: !book.read,
+      })
+      event.target.classList.remove('disabled');
+      flashNotification(`Successfully marked book as ${book.read ? 'unread' : 'read'}!`, true);
+    } catch (error) {
+      flashNotification('Failed to update book', false);
+    }
+  }
+  
   const handleDelete = async event => {
     try {
       event.preventDefault();
@@ -43,9 +60,9 @@ const Book = ({ flashNotification }) => {
             <ListGroup>
               <ListGroup.Item className='d-flex'>
                 <div className='mr-5'>
-                  <Card.Img style={{ width: '128px' }} variant="top" src={`${book ? book.bookCoverUrl : ''}`} className='ml-auto mr-auto' />  
+                  <Card.Img style={{ width: '150px' }} variant="top" src={`${book ? book.bookCoverUrl : ''}`} className='ml-auto mr-auto' />  
                   <div className='d-flex flex-column'>
-                    { book ? <Button className='mt-3' variant="success">Mark as 'read'</Button> : null } 
+                    { book ? <Button onClick={handleReadChange} className='mt-3' variant="success">Mark as '{ book.read ? 'unread' : 'read' }'</Button> : null }
                     { book ? <Button as='a' target='_blank' href={book.linkToPurchase} className='mt-3' variant="primary">Purchase</Button> : null }
                     { book ? <Button onClick={handleDelete} className='mt-3' variant="danger">Delete</Button> : null }
                   </div>

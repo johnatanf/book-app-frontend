@@ -46,6 +46,23 @@ const addBookToReadingList = async (googleBookId, title, subtitle, authors, book
   }
 }
 
+const toggleRead = async (id, read) => {
+  try {
+    const response = await axios({
+      method: 'put',
+      url: `${baseUrl}/${id}`,
+      data: {
+        read: !read,
+      },
+      withCredentials: true,
+    })
+    return response.status;
+  } catch (error) {
+    if (error.response.data) throw error.response.data;
+    throw error;
+  }
+}
+
 const deleteBook = async (id) => {
   try {
     const response = await axios({
@@ -64,5 +81,6 @@ export default {
   retrieveBooks,
   retrieveSpecificBook,
   addBookToReadingList,
+  toggleRead,
   deleteBook,
 }
