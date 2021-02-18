@@ -47,7 +47,7 @@ const App = () => {
   return (
     <Router>
       <NavBar user={user} setUser={setUser} flashNotification={flashNotification}/>
-      <Container>
+      <Container className='pb-5'>
         <Notification notification={ notification } />
         <Switch>
           <Route path='/search'>
