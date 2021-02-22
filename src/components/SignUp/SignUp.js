@@ -35,7 +35,7 @@ const SignUp = props => {
     <Row>
       <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
         <Card className='p-3'>
-          <Form onSubmit={handleSubmit}>
+          <Form autoComplete='off' onSubmit={handleSubmit}>
             <h2>Sign up</h2>
             <Form.Group controlId="username">
               <Form.Label>Username</Form.Label>

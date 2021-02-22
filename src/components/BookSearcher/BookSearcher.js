@@ -23,7 +23,7 @@ const BookSearcher = ({ flashNotification }) => {
       <Row className='mb-3'>
         <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
           <Card className='p-3'>
-            <Form onSubmit={handleSubmit} className='d-flex'>
+            <Form autoComplete='off' onSubmit={handleSubmit} className='d-flex'>
               <Form.Control onChange={event => setQuery(event.target.value)} value={query} id='search' size="lg" type="text" placeholder="Search..." />
               <Button type="submit" className="mb-2" size='lg'>
                 Search
