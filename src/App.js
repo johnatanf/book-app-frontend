@@ -45,7 +45,7 @@ const App = () => {
   }, [])
   
   return (
-    <Router>
+    <Router basename='/book-app-frontend'>
       <NavBar user={user} setUser={setUser} flashNotification={flashNotification}/>
       <Container className='pb-5'>
         <Notification notification={ notification } />
