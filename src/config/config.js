@@ -1,8 +1,4 @@
-let baseUrl = null;
-
-if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
-  baseUrl = 'http://localhost:3001'
-}
+let baseUrl = 'https://book-app-backend-5.herokuapp.com';
 
 export default {
   baseUrl,
