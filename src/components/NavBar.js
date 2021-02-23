@@ -25,18 +25,21 @@ const NavBar = props => {
       </Link>
       { props.user ?
       (
-        <Nav className="ml-auto">
-          <Nav.Link as='span'>
-            <Link to='/search'>Search</Link>
-          </Nav.Link>
-          <Nav.Link as='span'>
-            <Link to='/books'>Books</Link>
-          </Nav.Link>
-          <Nav.Link 
-            onClick={handleLogout}
-          >
-            Logout
-          </Nav.Link>
+        <Nav className="d-flex flex-column ml-auto">
+          <div className='d-flex ml-auto'>
+            <Nav.Link as='span' className='p-0 py-2 mr-3'>
+              <Link to='/search'>Search</Link>
+            </Nav.Link>
+            <Nav.Link as='span' className='p-0 py-2 mr-3'>
+              <Link to='/books'>Books</Link>
+            </Nav.Link>
+            <Nav.Link 
+              onClick={handleLogout}
+              className='p-0 py-2'
+            >
+              Logout
+            </Nav.Link>
+          </div>
           <Navbar.Text className='ml-5'>
             Signed in as {props.user.username}
           </Navbar.Text>
