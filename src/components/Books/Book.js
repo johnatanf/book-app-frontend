@@ -55,19 +55,19 @@ const Book = ({ flashNotification }) => {
   return (
     <>
       <Row>
-        <Col>
-          <Card className='h-100'>
+        <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+          <Card>
             <ListGroup>
-              <ListGroup.Item className='d-flex'>
-                <div className='mr-5'>
+              <ListGroup.Item className='d-flex flex-column'>
+                <div className='mr-5 d-flex flex-row align-items-center'>
                   <Card.Img style={{ width: '150px' }} variant="top" src={`${book ? book.bookCoverUrl : ''}`} className='ml-auto mr-auto' />  
-                  <div className='d-flex flex-column'>
+                  <div  className='d-flex flex-column ml-5'>
                     { book ? <Button onClick={handleReadChange} className='mt-3' variant="success">Mark as '{ book.read ? 'unread' : 'read' }'</Button> : null }
                     { book ? <Button as='a' target='_blank' href={book.linkToPurchase} className='mt-3' variant="primary">Purchase</Button> : null }
                     { book ? <Button onClick={handleDelete} className='mt-3' variant="danger">Delete</Button> : null }
                   </div>
                 </div>
-                <div>
+                <div className='mt-5'>
                   { book && book.title ? <h1>{book.title}</h1> : null }
                   { book && book.subtitle ? <h2 className="text-muted">{book.subtitle}</h2> : null }
                   { book && book.authors ? <p>Author(s): { book.authors.join(', ') }</p> : null }
