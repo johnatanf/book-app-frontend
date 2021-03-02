@@ -5,10 +5,11 @@ const baseUrl = `${config.baseUrl}/search`;
 
 const search = async (query) => {
   try {
+    const token = localStorage.getItem('token') ? localStorage.getItem('token') : 'null';
     const response = await axios({
       method: 'get',
       url: `${baseUrl}?query=${query}`,
-      withCredentials: true,
+      headers: { 'Authorization': `Bearer ${token}` }
     })
     return response.data
   } catch (error) {

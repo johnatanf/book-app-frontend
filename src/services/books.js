@@ -4,20 +4,22 @@ import config from '../config/config';
 const baseUrl = `${config.baseUrl}/books`
 
 const retrieveBooks = async () => {
+  const token = localStorage.getItem('token') ? localStorage.getItem('token') : 'null';
   const response = await axios({
     method: 'get',
     url: baseUrl,
-    withCredentials: true,
+    headers: { 'Authorization': `Bearer ${token}` }
   })
   return response.data;
 }
 
 const retrieveSpecificBook = async (id) => {
   try {
+    const token = localStorage.getItem('token') ? localStorage.getItem('token') : 'null';
     const response = await axios({
       method: 'get',
       url: `${baseUrl}/${id}`,
-      withCredentials: true,
+      headers: { 'Authorization': `Bearer ${token}` }
     })
     return response.data;
   } catch (error) {
@@ -28,6 +30,7 @@ const retrieveSpecificBook = async (id) => {
 
 const addBookToReadingList = async (googleBookId, title, subtitle, authors, bookCoverUrl) => {
   try { 
+    const token = localStorage.getItem('token') ? localStorage.getItem('token') : 'null';
     const response = await axios({
       method: 'post',
       url: `${baseUrl}`,
@@ -38,7 +41,7 @@ const addBookToReadingList = async (googleBookId, title, subtitle, authors, book
         authors,
         bookCoverUrl,
       },
-      withCredentials: true,
+      headers: { 'Authorization': `Bearer ${token}` }
     })
     return response.status;
   } catch (error) {
@@ -49,13 +52,14 @@ const addBookToReadingList = async (googleBookId, title, subtitle, authors, book
 
 const toggleRead = async (id, read) => {
   try {
+    const token = localStorage.getItem('token') ? localStorage.getItem('token') : 'null';
     const response = await axios({
       method: 'put',
       url: `${baseUrl}/${id}`,
       data: {
         read: !read,
       },
-      withCredentials: true,
+      headers: { 'Authorization': `Bearer ${token}` }
     })
     return response.status;
   } catch (error) {
@@ -66,10 +70,11 @@ const toggleRead = async (id, read) => {
 
 const deleteBook = async (id) => {
   try {
+    const token = localStorage.getItem('token') ? localStorage.getItem('token') : 'null';
     const response = await axios({
       method: 'delete',
       url: `${baseUrl}/${id}`,
-      withCredentials: true,
+      headers: { 'Authorization': `Bearer ${token}` }
     })
     return response.status;
   } catch (error) {

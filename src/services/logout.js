@@ -8,8 +8,8 @@ const logout = async () => {
     const response = await axios({
       method: 'get',
       url: baseUrl,
-      withCredentials: true,
     })
+    localStorage.removeItem('token');
     return response.data
   } catch (error) {
     if (error.response.data) throw error.response.data;

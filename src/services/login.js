@@ -11,8 +11,9 @@ const login = async (username, password) => {
       data: {
         username, password
       },
-      withCredentials: true,
     })
+    const token = response.data.token;
+    localStorage.setItem('token', token);
     return response;
   } catch (error) {
     throw error.response.data;

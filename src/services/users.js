@@ -5,10 +5,11 @@ const baseUrl = `${config.baseUrl}/users`;
 
 const checkLoggedIn = async () => {
   try {
+    const token = localStorage.getItem('token') ? localStorage.getItem('token') : 'null';
     const response = await axios({
       method: 'get',
       url: baseUrl,
-      withCredentials: true,
+      headers: { 'Authorization': `Bearer ${token}` }
     })
     return response.data;
   }
