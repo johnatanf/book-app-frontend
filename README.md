@@ -1,5 +1,8 @@
 # book-app-frontend 
 
+## Live demo 
+[Click here](https://johnatanf.github.io/book-app-frontend/) to see a live demo. 
+
 ## Technologies 
 
 Front-end: React and Bootstrap  
