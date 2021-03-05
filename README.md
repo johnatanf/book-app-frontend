@@ -13,10 +13,10 @@ Back-end: MongoDB, Express, Node.js (view back-end repository [here](https://git
 ### Basic authentication and authorization 
 - Basic user creation (username, name, password)
 - A username is required to search for books and view added books 
-- Token authentication [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- Token authentication ([jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken))
 
 ### Search 
-- Retrieves a list of books matching the search query. The books are retrieved from [Google Books Api](https://developers.google.com/books)
+- Retrieves a list of books matching the search query. The books are retrieved from [Google Books API](https://developers.google.com/books)
 - Users can add a book to their reading list by clicking the 'add' button 
 
 ### Reading list 
