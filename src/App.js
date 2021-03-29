@@ -13,9 +13,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 import Notification from './components/Notification';
-import Container from 'react-bootstrap/Container';
 
 const App = () => {
   
@@ -47,7 +45,7 @@ const App = () => {
   return (
     <Router basename='/book-app-frontend'>
       <NavBar user={user} setUser={setUser} flashNotification={flashNotification}/>
-      <Container className='pb-5'>
+      <div>
         <Notification notification={ notification } />
         <Switch>
           <Route path='/search'>
@@ -69,8 +67,7 @@ const App = () => {
             { user ? <Redirect to='/books' /> : <Home /> }
           </Route>
         </Switch>
-      </Container>
-      <Footer />
+      </div>
     </Router>
   );
 }

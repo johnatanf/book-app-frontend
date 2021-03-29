@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import BookGrid from './BookGrid';
 import booksService from '../../services/books';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Alert from 'react-bootstrap/Alert';
 
 const Books = ({ flashNotification }) => {
 
@@ -28,18 +25,15 @@ const Books = ({ flashNotification }) => {
   return (
     <>
       
-      <Row className='mb-5'>
-        <Col className='mb-3' sm={{ span: 12 }}>
-          <h3>Reading list</h3>
-        </Col>
+      <div>
+        <h3>Reading list</h3>
+
         {
           !books.length
           ?
-          <Col sm={{ span: 12 }}>
-            <Alert className={!message ? 'd-none' : ''} variant='info'>
-              {message}
-            </Alert>
-          </Col>
+          <div>
+            {message}
+          </div>
           :
           null
         }
@@ -48,21 +42,20 @@ const Books = ({ flashNotification }) => {
             .filter(book => book.read === false)
             .map(book => <BookGrid key={book._id} book={book}/>)
         }
-      </Row>
+      </div>
+
       <hr />
       { 
         books.length
         ?
-        <Row>
-          <Col className='my-3' sm={{ span: 12 }}>
+        <div>
             <h3>Already read</h3>
-          </Col>
           {
             books
               .filter(book => book.read)
               .map(book => <BookGrid key={book._id} book={book}/>)
           }
-        </Row>
+        </div>
         :
         null
       }

@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import BookGrid from '../Books/BookGrid';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import searchService from '../../services/search';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 const BookSearcher = ({ flashNotification }) => {
 
@@ -20,30 +15,22 @@ const BookSearcher = ({ flashNotification }) => {
   
   return (
     <>
-      <Row className='mb-3'>
-        <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
-          <Card className='p-3'>
-            <Form autoComplete='off' onSubmit={handleSubmit} className='d-flex'>
-              <Form.Control onChange={event => setQuery(event.target.value)} value={query} id='search' size="lg" type="text" placeholder="Search..." />
-              <Button type="submit" className="mb-2" size='lg'>
-                Search
-              </Button>
-            </Form>
-          </Card>
-        </Col>
-      </Row>
+      <div>
+        <form autoComplete='off' onSubmit={handleSubmit}>
+          <input onChange={event => setQuery(event.target.value)} value={query} id='search' type="text" placeholder="Search..."/>
+          <button type="submit">Search</button>
+        </form>
+      </div>
       
       { searchedBooks.length 
-      ? <Row>
-          <Col className='mb-3' sm={{ span: 12 }}>
-            <h3>Search results</h3>
-          </Col>
-        </Row>
-      : null }
+      ? <h3>Search results</h3>
+      : null 
+      }
+      
       { searchedBooks.length 
         ?
         (
-          <Row>
+          <div>
             {searchedBooks.map(book => 
               <BookGrid 
                 key={book.googleBookId} 
@@ -53,7 +40,7 @@ const BookSearcher = ({ flashNotification }) => {
                 flashNotification={flashNotification} 
               />
             )}
-          </Row>
+          </div>
         )
         :
         null

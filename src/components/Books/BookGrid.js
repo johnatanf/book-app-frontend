@@ -1,8 +1,5 @@
 import React from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import booksService from '../../services/books';
 import searchService from '../../services/search';
 import notAvailableImage from '../../assets/image-not-available.png';
@@ -43,24 +40,21 @@ const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
   }
   
   return (
-    <Col xs={12} sm={6} md={4} lg={3} className='mb-3 text-center'>
-      <Card className='h-100'>
-        <Card.Img style={{ width: '128px', height: '200px' }} variant="top" src={book && book.bookCoverUrl ? book.bookCoverUrl : notAvailableImage} className='ml-auto mr-auto' />
-        {/* <Card.Img style={{ width: '128px', height: '200px' }} variant="top" src={notAvailableImage} className='ml-auto mr-auto' /> */}
-        <Card.Body className='d-flex flex-column justify-content-between'>
-          <div>
-            <Card.Title>{book ? book.title : ''}</Card.Title>
-            <Card.Subtitle className="mb-3 text-muted">{book ? book.subtitle : ''}</Card.Subtitle>
-            <Card.Subtitle className="mb-3">{book.authors ? book.authors.join(', ') : ''}</Card.Subtitle>
-          </div>
-          <div>
-            { book._id && match.path === '/search' ? <Card.Subtitle className="mb-3 text-muted">Already in reading list</Card.Subtitle> : null }
-            { book._id ? <Button onClick={handleView} className='mt-3' variant="primary">View</Button> : null } 
-            { !book._id ? <Button onClick={handleAdd} className='mt-3' variant="primary">Add</Button> : null } 
-          </div>
-        </Card.Body>
-      </Card>
-    </Col>
+    <div>
+      <img style={{ width: '128px', height: '200px' }} src={book && book.bookCoverUrl ? book.bookCoverUrl : notAvailableImage} />
+      <div className='d-flex flex-column justify-content-between'>
+        <div>
+          <h2>{book ? book.title : ''}</h2>
+          <h3>{book ? book.subtitle : ''}</h3>
+          <h3>{book.authors ? book.authors.join(', ') : ''}</h3>
+        </div>
+        <div>
+          { book._id && match.path === '/search' ? <h3 className="mb-3 text-muted">Already in reading list</h3> : null }
+          { book._id ? <button onClick={handleView}>View</button> : null } 
+          { !book._id ? <button onClick={handleAdd}>Add</button> : null }
+        </div>
+      </div>
+    </div>
   );
 }
 

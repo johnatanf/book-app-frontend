@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import booksService from '../../services/books';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import ListGroup from 'react-bootstrap/ListGroup'
 
 const Book = ({ flashNotification }) => {
 
@@ -53,36 +48,26 @@ const Book = ({ flashNotification }) => {
   }, [])
 
   return (
-    <>
-      <Row>
-        <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
-          <Card>
-            <ListGroup>
-              <ListGroup.Item className='d-flex flex-column'>
-                <div className='mr-5 d-flex flex-row align-items-center'>
-                  <Card.Img style={{ width: '150px' }} variant="top" src={`${book ? book.bookCoverUrl : ''}`} className='ml-auto mr-auto' />  
-                  <div  className='d-flex flex-column ml-5'>
-                    { book ? <Button onClick={handleReadChange} className='mt-3' variant="success">Mark as '{ book.read ? 'unread' : 'read' }'</Button> : null }
-                    { book ? <Button as='a' target='_blank' href={book.linkToPurchase} className='mt-3' variant="primary">Purchase</Button> : null }
-                    { book ? <Button onClick={handleDelete} className='mt-3' variant="danger">Delete</Button> : null }
-                  </div>
-                </div>
-                <div className='mt-5'>
-                  { book && book.title ? <h1>{book.title}</h1> : null }
-                  { book && book.subtitle ? <h2 className="text-muted">{book.subtitle}</h2> : null }
-                  { book && book.authors ? <p>Author(s): { book.authors.join(', ') }</p> : null }
-                  { book && book.categories ? <p>Categories: {book.categories.join(', ')}</p> : null }
-                  { book && book.releaseDate ? <p>Release Date: { book.releaseDate }</p> : null }
-                  { book && book.rating ? <p>Rating: { book.rating }</p> : null }
-                  { book && book.pageCount ? <p>Number of pages: { book.pageCount }</p> : null}
-                  { book && book.printedPageCount ? <p>Number of printed pages: { book.printedPageCount }</p> : null}
-                </div>                
-              </ListGroup.Item>
-            </ListGroup>
-          </Card>
-        </Col>
-      </Row>
-    </>
+    <div>
+      <div>
+        <img style={{ width: '150px' }} variant="top" src={`${book ? book.bookCoverUrl : ''}`} />
+        <div>
+          { book ? <button onClick={handleReadChange}>Mark as '{ book.read ? 'unread' : 'read' }'</button> : null }
+          { book ? <a target="_blank" href={book.linkToPurchase}><button>Purchase</button></a> : null }
+          { book ? <button onClick={handleDelete}>Delete</button> : null }
+        </div>
+      </div>
+      <div className='mt-5'>
+        { book && book.title ? <h1>{book.title}</h1> : null }
+        { book && book.subtitle ? <h2 className="text-muted">{book.subtitle}</h2> : null }
+        { book && book.authors ? <p>Author(s): { book.authors.join(', ') }</p> : null }
+        { book && book.categories ? <p>Categories: {book.categories.join(', ')}</p> : null }
+        { book && book.releaseDate ? <p>Release Date: { book.releaseDate }</p> : null }
+        { book && book.rating ? <p>Rating: { book.rating }</p> : null }
+        { book && book.pageCount ? <p>Number of pages: { book.pageCount }</p> : null}
+        { book && book.printedPageCount ? <p>Number of printed pages: { book.printedPageCount }</p> : null}
+      </div>
+    </div>
   );
 }
 

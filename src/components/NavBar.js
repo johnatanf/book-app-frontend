@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Navbar from 'react-bootstrap/NavBar';
-import Nav from 'react-bootstrap/Nav';
 import logoutService from '../services/logout';
 
 const NavBar = props => {
@@ -19,48 +17,47 @@ const NavBar = props => {
   }
 
   return (
-    <Navbar bg="light" variant="light">
+    <div>
       <Link to={ props.user ? '/books' : '/'}>
-        <Navbar.Brand as='span'>Book App</Navbar.Brand>
+        <span>Book App</span>
       </Link>
       { props.user ?
       (
-        <Nav className="d-flex flex-column ml-auto">
+        <div>
           <div className='d-flex ml-auto'>
-            <Nav.Link as='span' className='p-0 py-2 mr-3'>
+            <span>
               <Link to='/search'>Search</Link>
-            </Nav.Link>
-            <Nav.Link as='span' className='p-0 py-2 mr-3'>
+            </span>
+            <span>
               <Link to='/books'>Books</Link>
-            </Nav.Link>
-            <Nav.Link 
+            </span>
+            <span
               onClick={handleLogout}
-              className='p-0 py-2'
             >
               Logout
-            </Nav.Link>
+            </span>
           </div>
-          <Navbar.Text className='ml-5'>
+          <span>
             Signed in as {props.user.username}
-          </Navbar.Text>
-        </Nav>
+          </span>
+        </div>
       )
       :
       (
-        <Nav className="ml-auto">
-          <Nav.Link as='span'>
+        <div>
+          <span>
             <Link to='/'>Home</Link>
-          </Nav.Link>
-          <Nav.Link as='span'>
+          </span>
+          <span>
             <Link to='/login'>Login</Link>
-          </Nav.Link>
-          <Nav.Link as='span'>
+          </span>
+          <span>
             <Link to='/signup'>Sign Up</Link>
-          </Nav.Link>
-        </Nav>
+          </span>
+        </div>
       )
       }
-    </Navbar>
+    </div>
   )
 }
 
