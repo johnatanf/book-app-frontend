@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import NavBar from './components/NavBar';
 import Notification from './components/Notification';
+import './css/style.css';
 
 const App = () => {
   

@@ -1,0 +1,77 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: $color-dark-grey;
+  padding: 2rem 0;
+  margin-right: 2rem;
+
+  &__logo {
+
+    p {
+      color: $color-white;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 300;
+    }
+  }
+
+  &__signed-in-user {
+    color: $color-light-grey;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: .5rem 0;
+    font-weight: 300;
+  }
+
+  &__links {
+    margin: 2rem 0;
+    list-style: none;
+    flex: 1;
+  }
+
+  &__link {
+    &:link,
+    &:visited {  
+      display: flex;
+      align-items: center;
+      padding: .5rem 1rem;
+      margin: .5rem 0;
+      width: 100%;
+      text-decoration: none;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: $color-light-grey;
+      transition: background-color .1s;
+    }
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+
+    &--active {
+      background-color: $color-secondary;
+    }
+
+    &-icon {
+      fill: $color-light-grey;
+      width: 2rem;
+      margin-right: .75rem;
+    }
+  }
+
+  &__copyright {
+    font-size: 1.1rem;
+    color: $color-light-grey;
+    text-align: center;
+
+    p a:link,
+    p a:visited {
+      color: $color-white;
+    }
+
+    p a:hover {
+      color: $color-secondary;
+    }
+  }
+}

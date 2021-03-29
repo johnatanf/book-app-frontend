@@ -1,0 +1,9 @@
+.card {
+  display: flex;
+  width: 80%;
+  margin: 2rem auto;
+  border-radius: 3px;
+  box-shadow: 0 .25rem .5rem rgba($color-black, .7);
+  background-color: $color-light-grey;
+  overflow: hidden;
+}
