@@ -34,7 +34,7 @@ const BookSearcher = ({ user, setUser, flashNotification }) => {
       </div>
       
       { searchedBooks.length 
-      ? <h3>Search results</h3>
+      ? <h2 className="books__heading">Results</h2>
       : null 
       }
       
