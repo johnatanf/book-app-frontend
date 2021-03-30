@@ -32,25 +32,25 @@ const CardNav = (props) => {
       <ul className="card-nav__links">
         <li>
           <Link style={{textDecoration: 'none'}} to='/books'>
-            <a className="card-nav__link card-nav__link--active" href="#">
+            <span className="card-nav__link card-nav__link--active" href="#">
               <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="books" />
               Books
-            </a>
+            </span>
           </Link>
         </li>
         <li>
           <Link style={{textDecoration: 'none'}} to='/search'>
-            <a className="card-nav__link" href="#">
+            <span className="card-nav__link">
               <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="search" />
               Search
-            </a>
+            </span>
           </Link>
         </li>
         <li>
-          <a className="card-nav__link" href="#" onClick={handleLogout}>
+          <span className="card-nav__link" onClick={handleLogout}>
             <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="exit" />
             Logout
-          </a>
+          </span>
         </li>
       </ul>
       <div className="card-nav__copyright">

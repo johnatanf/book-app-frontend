@@ -110,7 +110,7 @@ body {
   list-style: none;
   flex: 1;
 }
-.card-nav__link:link, .card-nav__link:visited {
+.card-nav__link {
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -121,6 +121,7 @@ body {
   text-transform: uppercase;
   color: #F7F7FF;
   transition: background-color 0.1s;
+  cursor: pointer;
 }
 .card-nav__link:hover {
   background-color: #FE5F55;
