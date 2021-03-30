@@ -22,7 +22,7 @@ const CardNav = (props) => {
   return (
     <div className="card-nav">
       <div className="card-nav__logo">
-        <Link to='/books'>
+        <Link style={{textDecoration: 'none'}} to='/books'>
           <p>Book App</p>
         </Link>
       </div>
@@ -55,7 +55,7 @@ const CardNav = (props) => {
       </ul>
       <div className="card-nav__copyright">
         <p>Created by Johnatan Fallen &copy; 2021</p>
-        <p>View my portfolio <a href="#">here</a>.</p>
+        <p>View my portfolio <a href="https://johnatanf.github.io/">here</a>.</p>
       </div>
     </div>
   )
