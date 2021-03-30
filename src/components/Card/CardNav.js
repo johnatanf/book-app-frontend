@@ -31,7 +31,7 @@ const CardNav = (props) => {
       </div>
       <ul className="card-nav__links">
         <li>
-          <Link to='/books'>
+          <Link style={{textDecoration: 'none'}} to='/books'>
             <a className="card-nav__link card-nav__link--active" href="#">
               <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="books" />
               Books
@@ -39,7 +39,7 @@ const CardNav = (props) => {
           </Link>
         </li>
         <li>
-          <Link to='/search'>
+          <Link style={{textDecoration: 'none'}} to='/search'>
             <a className="card-nav__link" href="#">
               <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="search" />
               Search
