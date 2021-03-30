@@ -29,9 +29,9 @@ const Books = ({ user, setUser, flashNotification }) => {
       setUser={setUser}
       flashNotification={flashNotification}
     >
-      <h2>Reading list</h2>
+      <h2 className="books__heading">Reading list</h2>
       <BookContainer books={books.filter(book => !book.read)} />
-      <h2>Already read</h2>
+      <h2 className="books__heading">Already read</h2>
       <BookContainer books={books.filter(book => book.read)} />
     </Card>
   );
