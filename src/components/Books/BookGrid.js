@@ -40,20 +40,16 @@ const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
   }
   
   return (
-    <div>
-      <img style={{ width: '128px', height: '200px' }} src={book && book.bookCoverUrl ? book.bookCoverUrl : notAvailableImage} />
-      <div className='d-flex flex-column justify-content-between'>
-        <div>
-          <h2>{book ? book.title : ''}</h2>
-          <h3>{book ? book.subtitle : ''}</h3>
-          <h3>{book.authors ? book.authors.join(', ') : ''}</h3>
-        </div>
-        <div>
-          { book._id && match.path === '/search' ? <h3 className="mb-3 text-muted">Already in reading list</h3> : null }
-          { book._id ? <button onClick={handleView}>View</button> : null } 
-          { !book._id ? <button onClick={handleAdd}>Add</button> : null }
-        </div>
+    <div className="book-grid">
+      <div>
+        <img className="book-grid__img" src={book && book.bookCoverUrl ? book.bookCoverUrl : notAvailableImage} alt={`${book.title} book cover`}/>
+        <h2 className="book-grid__title">{book ? book.title : ''}</h2>
+        <h3 className="book-grid__subtitle">{book ? book.subtitle : ''}</h3>
+        <h3 className="book-grid__author">{book.authors ? book.authors.join(', ') : ''}</h3>
       </div>
+      { book._id && match.path === '/search' ? <h3 className="mb-3 text-muted">Already in reading list</h3> : null }
+      { book._id ? <button className="book-grid__view-button" onClick={handleView}>View</button> : null } 
+      { !book._id ? <button className="book-grid__view-button" onClick={handleAdd}>Add</button> : null }
     </div>
   );
 }

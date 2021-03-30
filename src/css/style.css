@@ -28,7 +28,7 @@ body {
   flex-wrap: wrap;
 }
 
-.book {
+.book-grid {
   min-height: 42rem;
   padding: 2rem 2.5rem;
   margin: 2rem 0;
@@ -41,26 +41,26 @@ body {
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.5);
   background-color: #fff;
 }
-.book__img {
+.book-grid__img {
   width: 128px;
   height: 200px;
 }
-.book__title {
+.book-grid__title {
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 0.1rem;
 }
-.book__subtitle {
+.book-grid__subtitle {
   font-weight: 400;
   font-size: 1.25rem;
   font-style: italic;
 }
-.book__author {
+.book-grid__author {
   font-weight: 600;
   font-size: 1.25rem;
   margin-top: 0.75rem;
 }
-.book__view-button {
+.book-grid__view-button {
   font-family: "Open Sans", sans-serif;
   border: 0;
   padding: 0.5rem 1rem;
@@ -70,7 +70,7 @@ body {
   transition: background-color 0.1s;
   cursor: pointer;
 }
-.book__view-button:hover {
+.book-grid__view-button:hover {
   background-color: #495867;
 }
 
