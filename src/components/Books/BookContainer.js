@@ -6,6 +6,7 @@ const BookContainer = (props) => {
     <div className="book-container">
       { props.books.map(book => 
         <BookGrid 
+          key={book._id}
           book={book}
         />
       )}

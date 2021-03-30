@@ -27,10 +27,10 @@ const Login = props => {
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
 
-        <label for="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input id="username" type="text" placeholder="example123" />
 
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input id="password" type="password" placeholder="password" />
 
         <button type="submit">Submit</button>
