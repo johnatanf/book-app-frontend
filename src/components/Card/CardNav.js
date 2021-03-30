@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import logoutService from '../../services/logout';
 import iconSet from "../../assets/selection.json";
 import IcomoonReact, { iconList } from "icomoon-react";
 
 const CardNav = (props) => {
 
+  let match = useRouteMatch();
   let history = useHistory(); 
 
   const handleLogout = async () => {
@@ -32,7 +33,7 @@ const CardNav = (props) => {
       <ul className="card-nav__links">
         <li>
           <Link style={{textDecoration: 'none'}} to='/books'>
-            <span className="card-nav__link card-nav__link--active" href="#">
+            <span className={`card-nav__link ${match.path === '/books' ? 'card-nav__link--active' : ''}`} href="#">
               <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="books" />
               Books
             </span>
@@ -40,7 +41,7 @@ const CardNav = (props) => {
         </li>
         <li>
           <Link style={{textDecoration: 'none'}} to='/search'>
-            <span className="card-nav__link">
+            <span className={`card-nav__link ${match.path === '/search' ? 'card-nav__link--active' : ''}`}>
               <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="search" />
               Search
             </span>
