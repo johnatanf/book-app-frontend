@@ -41,7 +41,7 @@ const BookSearcher = ({ user, setUser, flashNotification }) => {
       { searchedBooks.length 
         ?
         (
-          <div>
+          <BookContainer>
             {searchedBooks.map(book => 
               <BookGrid 
                 key={book.googleBookId} 
@@ -51,7 +51,7 @@ const BookSearcher = ({ user, setUser, flashNotification }) => {
                 flashNotification={flashNotification} 
               />
             )}
-          </div>
+          </BookContainer>
         )
         :
         null
