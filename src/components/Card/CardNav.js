@@ -1,31 +1,53 @@
 import React from 'react'
+import { Link, useHistory } from 'react-router-dom';
+import logoutService from '../../services/logout';
 import iconSet from "../../assets/selection.json";
 import IcomoonReact, { iconList } from "icomoon-react";
 
 const CardNav = (props) => {
+
+  let history = useHistory(); 
+
+  const handleLogout = async () => {
+    try {
+      await logoutService.logout()
+      props.setUser(null)
+      history.push('/');
+    } catch (error) {
+      console.log(error);
+      props.flashNotification('Failed to log out. Please try again later.', false)
+    }
+  }
+
   return (
     <div className="card-nav">
       <div className="card-nav__logo">
-        <p>Book App</p>
+        <Link to='/books'>
+          <p>Book App</p>
+        </Link>
       </div>
       <div className="card-nav__signed-in-user">
         <p>Signed in as {props.user.username}</p>
       </div>
       <ul className="card-nav__links">
         <li>
-          <a className="card-nav__link card-nav__link--active" href="#">
-            <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="books" />
-            Books
-          </a>
+          <Link to='/books'>
+            <a className="card-nav__link card-nav__link--active" href="#">
+              <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="books" />
+              Books
+            </a>
+          </Link>
         </li>
         <li>
-          <a className="card-nav__link" href="#">
-            <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="search" />
-            Search
-          </a>
+          <Link to='/search'>
+            <a className="card-nav__link" href="#">
+              <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="search" />
+              Search
+            </a>
+          </Link>
         </li>
         <li>
-          <a className="card-nav__link" href="#">
+          <a className="card-nav__link" href="#" onClick={handleLogout}>
             <IcomoonReact className="card-nav__link-icon" iconSet={iconSet} icon="exit" />
             Logout
           </a>

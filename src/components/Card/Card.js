@@ -5,7 +5,11 @@ import CardNav from './CardNav';
 const Card = (props) => {
   return (
     <div className="card">
-      <CardNav user={props.user} />
+      <CardNav 
+        user={props.user} 
+        setUser={props.setUser}
+        flashNotification={props.flashNotification} 
+      />
       <Content>
         {props.children}
       </Content>
