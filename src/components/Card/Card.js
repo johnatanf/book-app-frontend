@@ -1,12 +1,14 @@
 import React from 'react';
 import Content from './Content';
-import Nav from './Nav';
+import CardNav from './CardNav';
 
 const Card = (props) => {
   return (
     <div className="card">
-      <Nav />
-      <Content />
+      <CardNav />
+      <Content>
+        {props.children}
+      </Content>
     </div>
   );
 }

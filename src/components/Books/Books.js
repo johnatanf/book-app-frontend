@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import BookGrid from './BookGrid';
 import booksService from '../../services/books';
+import Card from '../Card/Card';
 
 const Books = ({ flashNotification }) => {
 
@@ -23,44 +24,9 @@ const Books = ({ flashNotification }) => {
   }, [])
   
   return (
-    <>
+    <Card>
       
-      <div>
-        <h3>Reading list</h3>
-
-        {
-          !books.length
-          ?
-          <div>
-            {message}
-          </div>
-          :
-          null
-        }
-        {
-          books
-            .filter(book => book.read === false)
-            .map(book => <BookGrid key={book._id} book={book}/>)
-        }
-      </div>
-
-      <hr />
-      { 
-        books.length
-        ?
-        <div>
-            <h3>Already read</h3>
-          {
-            books
-              .filter(book => book.read)
-              .map(book => <BookGrid key={book._id} book={book}/>)
-          }
-        </div>
-        :
-        null
-      }
-      
-    </>
+    </Card>
   );
 }
 

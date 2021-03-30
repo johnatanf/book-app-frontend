@@ -84,14 +84,7 @@ body {
   overflow: hidden;
 }
 
-.content {
-  flex: 0 0 80%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 4rem 6rem;
-}
-
-.nav {
+.card-nav {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -99,25 +92,25 @@ body {
   padding: 2rem 0;
   margin-right: 2rem;
 }
-.nav__logo p {
+.card-nav__logo p {
   color: #fff;
   text-align: center;
   font-size: 2rem;
   font-weight: 300;
 }
-.nav__signed-in-user {
+.card-nav__signed-in-user {
   color: #F7F7FF;
   text-align: center;
   font-size: 1.25rem;
   margin: 0.5rem 0;
   font-weight: 300;
 }
-.nav__links {
+.card-nav__links {
   margin: 2rem 0;
   list-style: none;
   flex: 1;
 }
-.nav__link:link, .nav__link:visited {
+.card-nav__link:link, .card-nav__link:visited {
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -129,28 +122,35 @@ body {
   color: #F7F7FF;
   transition: background-color 0.1s;
 }
-.nav__link:hover {
+.card-nav__link:hover {
   background-color: #FE5F55;
 }
-.nav__link--active {
+.card-nav__link--active {
   background-color: #FE5F55;
 }
-.nav__link-icon {
+.card-nav__link-icon {
   fill: #F7F7FF;
   width: 2rem;
   margin-right: 0.75rem;
 }
-.nav__copyright {
+.card-nav__copyright {
   font-size: 1.1rem;
   color: #F7F7FF;
   text-align: center;
 }
-.nav__copyright p a:link,
-.nav__copyright p a:visited {
+.card-nav__copyright p a:link,
+.card-nav__copyright p a:visited {
   color: #fff;
 }
-.nav__copyright p a:hover {
+.card-nav__copyright p a:hover {
   color: #FE5F55;
+}
+
+.content {
+  flex: 0 0 80%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 4rem 6rem;
 }
 
 /*# sourceMappingURL=style.css.map */
