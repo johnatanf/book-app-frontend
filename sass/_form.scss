@@ -1,0 +1,65 @@
+.form {
+
+  width: 50%;
+  min-width: 40rem;
+  background-color: $color-light-grey;
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  border-radius: 3px;
+  box-shadow: 0 .5rem .5rem rgba($color-black, .3);
+
+  &__heading {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: .1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__field-group {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__field {
+    &-label {
+      font-size: 1.5rem;
+    }
+
+    &-input {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.5rem;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 2px solid $color-primary;
+      padding: 1rem 2rem;
+      transition: all .1s;
+
+      &:focus {
+        box-shadow: 0 5px 10px rgba($color-primary-light, 1);
+        outline: none;
+      }
+    }
+  }
+
+  &__button {
+    border-radius: 0;
+    border: 0;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 3rem;
+    color: white;
+    text-transform: uppercase;
+    background-color: $color-secondary;
+    cursor: pointer;
+    transition: all .1s;
+
+    &:hover {
+      background-color: darken($color-secondary, 10%);
+    }
+  }
+}
