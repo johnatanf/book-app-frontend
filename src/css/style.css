@@ -147,7 +147,7 @@ body {
 }
 
 .content {
-  flex: 0 0 80%;
+  flex: 0 0 82.5%;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 4rem 6rem;
