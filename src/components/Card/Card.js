@@ -5,7 +5,7 @@ import CardNav from './CardNav';
 const Card = (props) => {
   return (
     <div className="card">
-      <CardNav />
+      <CardNav user={props.user} />
       <Content>
         {props.children}
       </Content>

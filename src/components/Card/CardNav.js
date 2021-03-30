@@ -9,7 +9,7 @@ const CardNav = (props) => {
         <p>Book App</p>
       </div>
       <div className="card-nav__signed-in-user">
-        <p>Signed in as tim123</p>
+        <p>Signed in as {props.user.username}</p>
       </div>
       <ul className="card-nav__links">
         <li>

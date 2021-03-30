@@ -3,7 +3,7 @@ import BookContainer from './BookContainer';
 import booksService from '../../services/books';
 import Card from '../Card/Card';
 
-const Books = ({ flashNotification }) => {
+const Books = ({ user, flashNotification }) => {
 
   const [books, setBooks] = useState([]);
   const [message, setMessage] = useState('');
@@ -24,7 +24,7 @@ const Books = ({ flashNotification }) => {
   }, [])
   
   return (
-    <Card>
+    <Card user={user}>
       <h2>Reading list</h2>
       <BookContainer books={books.filter(book => !book.read)} />
       <h2>Already read</h2>
