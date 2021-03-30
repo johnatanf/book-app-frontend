@@ -208,6 +208,38 @@ body {
   background-color: #fe2f22;
 }
 
+.search__form {
+  display: flex;
+  margin-top: 3rem;
+  width: 100%;
+}
+.search__input {
+  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  flex: 1;
+  padding: 1rem 2rem;
+  border: 0;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  transition: all 0.1s;
+}
+.search__input:focus {
+  box-shadow: 0 5px 10px #bdd5ea;
+  outline: none;
+}
+.search__submit {
+  flex: 0 0 5rem;
+  border: 0;
+  padding: 1rem;
+  background-color: #FE5F55;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+.search__icon {
+  position: relative;
+  left: -0.25rem;
+}
+
 .books__heading {
   font-size: 2.5rem;
   font-weight: 300;

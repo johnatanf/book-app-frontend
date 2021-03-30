@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import BookContainer from '../Books/BookContainer';
 import BookGrid from '../Books/BookGrid';
+import Card from '../Card/Card';
 import searchService from '../../services/search';
+import iconSet from "../../assets/selection.json";
+import IcomoonReact, { iconList } from "icomoon-react";
 
-const BookSearcher = ({ flashNotification }) => {
+const BookSearcher = ({ user, setUser, flashNotification }) => {
 
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [query, setQuery] = useState('');
@@ -14,11 +18,18 @@ const BookSearcher = ({ flashNotification }) => {
   }
   
   return (
-    <>
+    <Card 
+      user={user} 
+      setUser={setUser}
+      flashNotification={flashNotification}
+    >
+      <h2 className="books__heading">Search</h2>
       <div>
-        <form autoComplete='off' onSubmit={handleSubmit}>
-          <input onChange={event => setQuery(event.target.value)} value={query} id='search' type="text" placeholder="Search..."/>
-          <button type="submit">Search</button>
+        <form className="search__form" autoComplete='off' onSubmit={handleSubmit}>
+          <input className="search__input" onChange={event => setQuery(event.target.value)} value={query} id='search' type="text" placeholder="Search..."/>
+          <button className="search__submit" type="submit">
+            <IcomoonReact className="search__icon" iconSet={iconSet} icon="search" />
+          </button>
         </form>
       </div>
       
@@ -45,7 +56,7 @@ const BookSearcher = ({ flashNotification }) => {
         :
         null
       }
-    </>
+    </Card>
   );
 }
 

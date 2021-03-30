@@ -50,7 +50,7 @@ const App = () => {
         <Notification notification={ notification } />
         <Switch>
           <Route path='/search'>
-            { !user ? <Redirect to='/' /> : <BookSearcher flashNotification={flashNotification} /> }
+            { !user ? <Redirect to='/' /> : <BookSearcher user={user} setUser={setUser} flashNotification={flashNotification} /> }
           </Route>
           <Route path='/books/:id'>
             { !user ? <Redirect to='/' /> : <Book flashNotification={flashNotification} /> }
