@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import BookGrid from './BookGrid';
+import BookContainer from './BookContainer';
 import booksService from '../../services/books';
 import Card from '../Card/Card';
 
@@ -25,7 +25,10 @@ const Books = ({ flashNotification }) => {
   
   return (
     <Card>
-      
+      <h2>Reading list</h2>
+      <BookContainer books={books.filter(book => !book.read)} />
+      <h2>Already read</h2>
+      <BookContainer books={books.filter(book => book.read)} />
     </Card>
   );
 }
