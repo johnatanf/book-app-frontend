@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch, useHistory } from 'react-router-dom';
+import Card from '../Card/Card';
 import booksService from '../../services/books';
 
-const Book = ({ flashNotification }) => {
+const Book = ({ user, setUser, flashNotification }) => {
 
   const [book, setBook] = useState(null);
 
@@ -48,26 +49,34 @@ const Book = ({ flashNotification }) => {
   }, [])
 
   return (
-    <div>
-      <div>
-        <img style={{ width: '150px' }} variant="top" src={`${book ? book.bookCoverUrl : ''}`} />
-        <div>
-          { book ? <button onClick={handleReadChange}>Mark as '{ book.read ? 'unread' : 'read' }'</button> : null }
-          { book ? <a target="_blank" href={book.linkToPurchase}><button>Purchase</button></a> : null }
-          { book ? <button onClick={handleDelete}>Delete</button> : null }
+    <Card
+      user={user}
+      setUser={setUser}
+      flashNotification={flashNotification}
+    >
+      <div className="book">
+        <div className="book__img-buttons-container">
+          <img className="book__img" src={`${book ? book.bookCoverUrl : ''}`} />
+          <div className="book__buttons">
+            { book ? <button onClick={handleReadChange}>Mark as '{ book.read ? 'unread' : 'read' }'</button> : null }
+            { book ? <a target="_blank" href={book.linkToPurchase}><button>Purchase</button></a> : null }
+            { book ? <button onClick={handleDelete}>Delete</button> : null }
+          </div>
+        </div>
+        <div className="book__description">
+          { book && book.title ? <h1 className="book__title">{book.title}</h1> : null }
+          { book && book.subtitle ? <h2 className="book__subtitle">{book.subtitle}</h2> : null }
+          <hr className="book__description-separator" />
+          { book && book.authors ? <p className="book__authors"><span className="book__data-name">Author(s)</span>: { book.authors.join(', ') }</p> : null }
+          { book && book.categories ? <p className="book__categories"><span className="book__data-name">Categories</span>: {book.categories.join(', ')}</p> : null }
+          { book && book.releaseDate ? <p className="book__release-date"><span className="book__data-name">Release Date</span>: { book.releaseDate }</p> : null }
+          { book && book.rating ? <p className="book__rating"><span className="book__data-name">Rating</span>: { book.rating }</p> : null }
+          { book && book.pageCount ? <p className="book__number-of-pages"><span className="book__data-name">Number of pages</span>: { book.pageCount }</p> : null}
+          { book && book.printedPageCount ? <p className="book__number-of-printed-pages"><span className="book__data-name">Number of printed pages</span>: { book.printedPageCount }</p> : null}
         </div>
       </div>
-      <div className='mt-5'>
-        { book && book.title ? <h1>{book.title}</h1> : null }
-        { book && book.subtitle ? <h2 className="text-muted">{book.subtitle}</h2> : null }
-        { book && book.authors ? <p>Author(s): { book.authors.join(', ') }</p> : null }
-        { book && book.categories ? <p>Categories: {book.categories.join(', ')}</p> : null }
-        { book && book.releaseDate ? <p>Release Date: { book.releaseDate }</p> : null }
-        { book && book.rating ? <p>Rating: { book.rating }</p> : null }
-        { book && book.pageCount ? <p>Number of pages: { book.pageCount }</p> : null}
-        { book && book.printedPageCount ? <p>Number of printed pages: { book.printedPageCount }</p> : null}
-      </div>
-    </div>
+      
+    </Card>
   );
 }
 

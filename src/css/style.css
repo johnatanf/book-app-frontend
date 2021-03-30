@@ -22,6 +22,41 @@ body {
   background-color: #577399;
 }
 
+.book {
+  display: flex;
+  justify-content: space-around;
+}
+.book__img-buttons-container {
+  flex: 0 0 18rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 6rem;
+}
+.book__description {
+  flex: 2;
+}
+.book__description-separator {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.book__title {
+  font-size: 4rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+.book__subtitle {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.book__data-name {
+  font-weight: 700;
+}
+.book__authors, .book__categories, .book__release-date, .book__rating, .book__number-of-pages, .book__number-of-printed-pages {
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
 .book-container {
   display: flex;
   justify-content: space-around;

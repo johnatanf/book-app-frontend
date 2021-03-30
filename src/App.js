@@ -53,7 +53,7 @@ const App = () => {
             { !user ? <Redirect to='/' /> : <BookSearcher user={user} setUser={setUser} flashNotification={flashNotification} /> }
           </Route>
           <Route path='/books/:id'>
-            { !user ? <Redirect to='/' /> : <Book flashNotification={flashNotification} /> }
+            { !user ? <Redirect to='/' /> : <Book user={user} setUser={setUser} flashNotification={flashNotification} /> }
           </Route>
           <Route path='/books'>
             { !user ? <Redirect to='/' /> : <Books user={user} setUser={setUser} flashNotification={flashNotification} /> }
