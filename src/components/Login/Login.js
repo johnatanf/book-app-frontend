@@ -28,8 +28,8 @@ const Login = props => {
         <h2 className="form__heading">Login</h2>
 
         <div className="form__field-group">
-          <label class="form__field-label" htmlFor="username">Username</label>
-          <input class="form__field-input" id="username" type="text"/>
+          <label className="form__field-label" htmlFor="username">Username</label>
+          <input className="form__field-input" id="username" type="text"/>
         </div>
 
         <div className="form__field-group">

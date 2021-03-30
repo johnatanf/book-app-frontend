@@ -31,17 +31,17 @@ const SignUp = props => {
       <form className="form" onSubmit={handleSubmit}>
         <h2 className="form__heading">Sign Up</h2>
         <div className="form__field-group">
-          <label className="form__field-label" for="username">Username</label>
+          <label className="form__field-label" htmlFor="username">Username</label>
           <input className="form__field-input" id="username" type="text" name="username"/>
         </div>
 
         <div className="form__field-group">
-          <label className="form__field-label" for="name">Name</label>
+          <label className="form__field-label" htmlFor="name">Name</label>
           <input className="form__field-input" id="name" type="text" name="name"/>
         </div>
         
         <div className="form__field-group">
-          <label className="form__field-label" for="password">Password</label>
+          <label className="form__field-label" htmlFor="password">Password</label>
           <input className="form__field-input" id="password" type="password" name="password"/>
         </div>
         <button className="form__button" type="submit">Log in</button>
