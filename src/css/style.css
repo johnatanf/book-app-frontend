@@ -122,16 +122,16 @@ body {
 
 .book-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .book-grid {
   min-height: 42rem;
   padding: 2rem 2.5rem;
-  margin: 2rem 0;
+  margin: 2rem 2rem;
   display: flex;
-  flex: 0 0 23.5rem;
+  flex: 0 0 21.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
