@@ -32,7 +32,7 @@ const Books = ({ user, setUser, notification, flashNotification }) => {
       notification={notification}
       flashNotification={flashNotification}
     >
-      <Notification notification={{ message, info: true}} />
+      {!books.length ? <Notification notification={{ message, info: true}} /> : null}
       {books.filter(book => !book.read).length 
       ? (
         <>
