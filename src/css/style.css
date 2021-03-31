@@ -312,6 +312,7 @@ body {
   padding: 0.5rem 0.75rem;
   border-radius: 3px;
   box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
 }
 .notification__icon {
   flex: 0 0 2rem;
@@ -332,6 +333,9 @@ body {
 .notification--failure {
   background-color: #FE5F55;
   color: #F7F7FF;
+}
+.notification--invisible {
+  visibility: hidden;
 }
 
 .search__form {
