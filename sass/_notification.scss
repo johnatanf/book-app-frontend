@@ -22,13 +22,13 @@
     color: $color-dark-grey;
   }
 
-  &--info {
-    background-color: $color-primary;
+  &--failure {
+    background-color: $color-secondary;
     color: $color-light-grey;
   }
 
-  &--failure {
-    background-color: $color-secondary;
+  &--info {
+    background-color: $color-primary;
     color: $color-light-grey;
   }
 

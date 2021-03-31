@@ -17,19 +17,19 @@ import './css/style.css';
 const App = () => {
   
   const [user, setUser] = useState(null);
-  const [notification, setNotification] = useState({ message: null, success: null });
+  const [notification, setNotification] = useState({ message: null, status: null }); // status: success, failure, info 
   const [notificationTimerId, setNotificationTimerId] = useState(null);
 
-  const flashNotification = (message, success) => {
+  const flashNotification = (message, status) => {
     if (notificationTimerId) {
       clearTimeout(notificationTimerId);
       setNotificationTimerId(null);
     }
 
-    setNotification({ message, success })
+    setNotification({ message, status })
 
     const timerId = setTimeout(() => {
-      setNotification({ message: null, success: null });
+      setNotification({ message: null, status: null });
     }, 5000)
 
     setNotificationTimerId(timerId);

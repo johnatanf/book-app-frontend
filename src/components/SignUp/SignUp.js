@@ -17,9 +17,9 @@ const SignUp = props => {
       await loginService.login(username, password);
       history.push('/');
       props.setUser({ username });
-      props.flashNotification(`Welcome, ${username}!`, true);
+      props.flashNotification(`Welcome, ${username}!`, 'success');
     } catch (e) {
-      props.flashNotification(e.error, false);
+      props.flashNotification(e.error, 'failure');
       event.target.username.value = ''
       event.target.name.value = ''
       event.target.password.value = ''

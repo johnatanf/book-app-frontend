@@ -327,12 +327,12 @@ body {
   background-color: #9ef01a;
   color: #333;
 }
-.notification--info {
-  background-color: #577399;
-  color: #F7F7FF;
-}
 .notification--failure {
   background-color: #FE5F55;
+  color: #F7F7FF;
+}
+.notification--info {
+  background-color: #577399;
   color: #F7F7FF;
 }
 .notification--invisible {

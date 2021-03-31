@@ -3,6 +3,7 @@ import BookContainer from './BookContainer';
 import booksService from '../../services/books';
 import BookGrid from '../Books/BookGrid';
 import Card from '../Card/Card';
+import Notification from '../Notification';
 
 const Books = ({ user, setUser, notification, flashNotification }) => {
 
@@ -20,7 +21,7 @@ const Books = ({ user, setUser, notification, flashNotification }) => {
         }
       })
       .catch(err => {
-        flashNotification('Failed to retrieve books. Please reload the page and try again.', false);
+        flashNotification('Failed to retrieve books. Please reload the page and try again.', 'failure');
       })
   }, [])
   
@@ -31,6 +32,7 @@ const Books = ({ user, setUser, notification, flashNotification }) => {
       notification={notification}
       flashNotification={flashNotification}
     >
+      <Notification notification={{ message, info: true}} />
       {books.filter(book => !book.read).length 
       ? (
         <>

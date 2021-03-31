@@ -24,9 +24,9 @@ const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
       );
       const updatedBooks = await searchService.search(query);
       setSearchedBooks(updatedBooks);
-      flashNotification('Successfully added book to reading list!', true);
+      flashNotification('Successfully added book to reading list!', 'success');
     } catch (error) {
-      flashNotification('Failed to add book to reading list', false);
+      flashNotification('Failed to add book to reading list', 'failure');
     }
   }
 
@@ -35,7 +35,7 @@ const BookGrid = ({ book, query, flashNotification, setSearchedBooks }) => {
       event.preventDefault();
       history.push(`/books/${book._id}`);
     } catch (error) {
-      flashNotification('Failed to view book', false);
+      flashNotification('Failed to view book', 'failure');
     }
   }
   

@@ -16,7 +16,7 @@ const CardNav = (props) => {
       history.push('/');
     } catch (error) {
       console.log(error);
-      props.flashNotification('Failed to log out. Please try again later.', false)
+      props.flashNotification('Failed to log out. Please try again later.', 'failure')
     }
   }
 
