@@ -66,7 +66,7 @@ const Book = ({ user, setUser, flashNotification }) => {
         <div className="book__description">
           { book && book.title ? <h1 className="book__title">{book.title}</h1> : null }
           { book && book.subtitle ? <h2 className="book__subtitle">{book.subtitle}</h2> : null }
-          <hr className="book__description-separator" />
+          { book && book.title ? <hr className="book__description-separator" /> : null }
           { book && book.authors ? <p className="book__authors"><span className="book__data-name">Author(s)</span>: { book.authors.join(', ') }</p> : null }
           { book && book.categories ? <p className="book__categories"><span className="book__data-name">Categories</span>: {book.categories.join(', ')}</p> : null }
           { book && book.releaseDate ? <p className="book__release-date"><span className="book__data-name">Release Date</span>: { book.releaseDate }</p> : null }
