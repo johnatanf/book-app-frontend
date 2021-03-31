@@ -12,8 +12,6 @@ import BookSearcher from './components/BookSearcher/BookSearcher';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
-import NavBar from './components/NavBar';
-import Notification from './components/Notification';
 import './css/style.css';
 
 const App = () => {
@@ -45,9 +43,7 @@ const App = () => {
   
   return (
     <Router basename='/book-app-frontend'>
-      <NavBar user={user} setUser={setUser} flashNotification={flashNotification}/>
       <div>
-        <Notification notification={ notification } />
         <Switch>
           <Route path='/search'>
             { !user ? <Redirect to='/' /> : <BookSearcher user={user} setUser={setUser} notification={notification} flashNotification={flashNotification} /> }
