@@ -28,11 +28,44 @@ body {
   justify-content: space-around;
 }
 .book__img-buttons-container {
-  flex: 0 0 18rem;
+  flex: 0 0 15rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 6rem;
+}
+.book__buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.book__buttons a:link,
+.book__buttons a:visited {
+  display: block;
+  text-decoration: none;
+}
+.book__buttons a:link button,
+.book__buttons a:visited button {
+  width: 100%;
+  /* this is for the purchase button that's nested under an <a> */
+}
+.book__button {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  border: 0;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+.book__button-icon {
+  fill: #333;
+  flex: 0 0 2rem;
+  margin-right: 1rem;
 }
 .book__description {
   flex: 2;

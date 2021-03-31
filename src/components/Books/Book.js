@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch, useHistory } from 'react-router-dom';
+import iconSet from "../../assets/selection.json";
+import IcomoonReact, { iconList } from "icomoon-react";
 import Card from '../Card/Card';
 import booksService from '../../services/books';
 
@@ -58,9 +60,29 @@ const Book = ({ user, setUser, flashNotification }) => {
         <div className="book__img-buttons-container">
           <img className="book__img" src={`${book ? book.bookCoverUrl : ''}`} />
           <div className="book__buttons">
-            { book ? <button onClick={handleReadChange}>Mark as '{ book.read ? 'unread' : 'read' }'</button> : null }
-            { book ? <a target="_blank" href={book.linkToPurchase}><button>Purchase</button></a> : null }
-            { book ? <button onClick={handleDelete}>Delete</button> : null }
+            { book 
+              ? <button className="book__button" onClick={handleReadChange}>
+                  <IcomoonReact className="book__button-icon" iconSet={iconSet} icon="books" />
+                  Mark as '{ book.read ? 'unread' : 'read' }'
+                </button> 
+              : null 
+            }
+            { book 
+              ? <a target="_blank" href={book.linkToPurchase}>
+                  <button className="book__button">
+                    <IcomoonReact className="book__button-icon" iconSet={iconSet} icon="cart" />
+                    Purchase
+                  </button>
+                </a> 
+              : null 
+            }
+            { book 
+              ? <button className="book__button" onClick={handleDelete}>
+                  <IcomoonReact className="book__button-icon" iconSet={iconSet} icon="bin2" />
+                  Delete
+                </button> 
+              : null 
+            }
           </div>
         </div>
         <div className="book__description">
