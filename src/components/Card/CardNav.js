@@ -56,7 +56,7 @@ const CardNav = (props) => {
       </ul>
       <div className="card-nav__copyright">
         <p>Created by Johnatan Fallen &copy; 2021</p>
-        <p>View my portfolio <a href="https://johnatanf.github.io/">here</a>.</p>
+        <p>View my portfolio <a href="https://johnatanf.github.io/" target="_blank" rel="noreferrer">here</a>.</p>
       </div>
     </div>
   )
