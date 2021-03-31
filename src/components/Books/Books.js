@@ -4,7 +4,7 @@ import booksService from '../../services/books';
 import BookGrid from '../Books/BookGrid';
 import Card from '../Card/Card';
 
-const Books = ({ user, setUser, flashNotification }) => {
+const Books = ({ user, setUser, notification, flashNotification }) => {
 
   const [books, setBooks] = useState([]);
   const [message, setMessage] = useState('');
@@ -28,6 +28,7 @@ const Books = ({ user, setUser, flashNotification }) => {
     <Card 
       user={user} 
       setUser={setUser}
+      notification={notification}
       flashNotification={flashNotification}
     >
       {books.filter(book => !book.read).length 

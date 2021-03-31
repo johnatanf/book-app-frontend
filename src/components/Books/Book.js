@@ -5,7 +5,7 @@ import IcomoonReact, { iconList } from "icomoon-react";
 import Card from '../Card/Card';
 import booksService from '../../services/books';
 
-const Book = ({ user, setUser, flashNotification }) => {
+const Book = ({ user, setUser, notification, flashNotification }) => {
 
   const [book, setBook] = useState(null);
 
@@ -54,6 +54,7 @@ const Book = ({ user, setUser, flashNotification }) => {
     <Card
       user={user}
       setUser={setUser}
+      notification={notification}
       flashNotification={flashNotification}
     >
       <div className="book">

@@ -6,7 +6,7 @@ import searchService from '../../services/search';
 import iconSet from "../../assets/selection.json";
 import IcomoonReact, { iconList } from "icomoon-react";
 
-const BookSearcher = ({ user, setUser, flashNotification }) => {
+const BookSearcher = ({ user, setUser, notification, flashNotification }) => {
 
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [query, setQuery] = useState('');
@@ -21,6 +21,7 @@ const BookSearcher = ({ user, setUser, flashNotification }) => {
     <Card 
       user={user} 
       setUser={setUser}
+      notification={notification}
       flashNotification={flashNotification}
     >
       <h2 className="books__heading">Search</h2>

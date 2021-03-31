@@ -10,7 +10,7 @@ const Card = (props) => {
         setUser={props.setUser}
         flashNotification={props.flashNotification} 
       />
-      <Content>
+      <Content notification={props.notification}>
         {props.children}
       </Content>
     </div>
