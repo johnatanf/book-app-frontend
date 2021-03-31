@@ -61,7 +61,7 @@ const Book = ({ user, setUser, flashNotification }) => {
           <img className="book__img" src={`${book ? book.bookCoverUrl : ''}`} />
           <div className="book__buttons">
             { book 
-              ? <button className="book__button" onClick={handleReadChange}>
+              ? <button className="book__button book__button--mark" onClick={handleReadChange}>
                   <IcomoonReact className="book__button-icon" iconSet={iconSet} icon="books" />
                   Mark as '{ book.read ? 'unread' : 'read' }'
                 </button> 
@@ -69,7 +69,7 @@ const Book = ({ user, setUser, flashNotification }) => {
             }
             { book 
               ? <a target="_blank" href={book.linkToPurchase}>
-                  <button className="book__button">
+                  <button className="book__button book__button--purchase">
                     <IcomoonReact className="book__button-icon" iconSet={iconSet} icon="cart" />
                     Purchase
                   </button>
@@ -77,7 +77,7 @@ const Book = ({ user, setUser, flashNotification }) => {
               : null 
             }
             { book 
-              ? <button className="book__button" onClick={handleDelete}>
+              ? <button className="book__button book__button--delete" onClick={handleDelete}>
                   <IcomoonReact className="book__button-icon" iconSet={iconSet} icon="bin2" />
                   Delete
                 </button> 
