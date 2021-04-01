@@ -5,7 +5,7 @@
 
 ## Technologies 
 
-Front-end: React and Bootstrap  
+Front-end: React  
 Back-end: MongoDB, Express, Node.js (view back-end repository [here](https://github.com/johnatanf/book-app-backend/))
 
 ## Features 
