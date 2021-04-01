@@ -22,14 +22,17 @@ const CardNav = (props) => {
 
   return (
     <div className="card-nav">
-      <div className="card-nav__logo">
-        <Link style={{textDecoration: 'none'}} to='/books'>
-          <p>Book App</p>
-        </Link>
+      <div>
+        <div className="card-nav__logo">
+          <Link style={{textDecoration: 'none'}} to='/books'>
+            <p>Book App</p>
+          </Link>
+        </div>
+        <div className="card-nav__signed-in-user">
+          <p>Signed in as {props.user.username}</p>
+        </div>
       </div>
-      <div className="card-nav__signed-in-user">
-        <p>Signed in as {props.user.username}</p>
-      </div>
+      
       <ul className="card-nav__links">
         <li>
           <Link style={{textDecoration: 'none'}} to='/books'>

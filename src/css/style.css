@@ -1,3 +1,4 @@
+/* media queries */
 /* colors */
 * {
   margin: 0;
@@ -15,6 +16,16 @@ html {
   font-size: 62.5%;
   overflow-y: scroll;
 }
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 46.875em) {
+  html {
+    font-size: 53.125%;
+  }
+}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -27,6 +38,11 @@ body {
   display: flex;
   justify-content: space-around;
 }
+@media only screen and (max-width: 31.25em) {
+  .book {
+    flex-direction: column;
+  }
+}
 .book__img-buttons-container {
   flex: 0 0 17rem;
   display: flex;
@@ -34,10 +50,35 @@ body {
   align-items: center;
   margin-right: 6rem;
 }
+@media only screen and (max-width: 31.25em) {
+  .book__img-buttons-container {
+    flex-direction: row;
+    margin-right: 0;
+    padding: 0 2rem;
+  }
+}
+@media only screen and (max-width: 28.125em) {
+  .book__img-buttons-container {
+    flex-direction: column;
+    padding: 0;
+  }
+}
 .book__buttons {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+}
+@media only screen and (max-width: 31.25em) {
+  .book__buttons {
+    margin-top: 0;
+    padding: 0 0 0 3rem;
+  }
+}
+@media only screen and (max-width: 28.125em) {
+  .book__buttons {
+    margin-top: 2.5rem;
+    padding: 0 3rem;
+  }
 }
 .book__buttons a:link,
 .book__buttons a:visited {
@@ -63,6 +104,11 @@ body {
   cursor: pointer;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
   transition: all 0.2s;
+}
+@media only screen and (max-width: 31.25em) {
+  .book__button {
+    padding: 1.25rem 1rem;
+  }
 }
 .book__button-icon {
   fill: #333;
@@ -98,6 +144,11 @@ body {
 }
 .book__description {
   flex: 2;
+}
+@media only screen and (max-width: 31.25em) {
+  .book__description {
+    margin-top: 3rem;
+  }
 }
 .book__description-separator {
   margin-top: 2rem;
@@ -182,6 +233,22 @@ body {
   background-color: #F7F7FF;
   overflow: hidden;
 }
+@media only screen and (max-width: 56.25em) {
+  .card {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 43.75em) {
+  .card {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .card {
+    width: 100%;
+    margin: 0;
+  }
+}
 
 .card-nav {
   display: flex;
@@ -189,6 +256,19 @@ body {
   flex: 1;
   background-color: #333;
   padding: 2rem 0;
+}
+@media only screen and (max-width: 56.25em) {
+  .card-nav {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0;
+  }
+}
+@media only screen and (max-width: 43.75em) {
+  .card-nav {
+    flex-direction: column;
+  }
 }
 .card-nav__logo p {
   color: #fff;
@@ -205,9 +285,18 @@ body {
   padding: 0 0.5rem;
 }
 .card-nav__links {
+  display: flex;
+  flex-direction: column;
   margin: 2rem 0;
   list-style: none;
   flex: 1;
+}
+@media only screen and (max-width: 56.25em) {
+  .card-nav__links {
+    flex-direction: row;
+    flex: 0;
+    margin: 0;
+  }
 }
 .card-nav__link {
   display: flex;
@@ -251,6 +340,11 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 4rem 6rem;
+}
+@media only screen and (max-width: 56.25em) {
+  .content {
+    flex: 1;
+  }
 }
 
 .form {

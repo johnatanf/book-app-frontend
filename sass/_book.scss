@@ -2,18 +2,43 @@
   display: flex;
   justify-content: space-around;
 
+  @media only screen and (max-width: $bp-smallest) {
+    flex-direction: column;
+  }
+
   &__img-buttons-container {
     flex: 0 0 17rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 6rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      flex-direction: row;
+      margin-right: 0;
+      padding: 0 2rem;
+    }
+
+    @media only screen and (max-width: $bp-tiny) {
+      flex-direction: column;
+      padding: 0;
+    }
   }
 
   &__buttons {
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-top: 0;
+      padding: 0 0 0 3rem;
+    }
+
+    @media only screen and (max-width: $bp-tiny) {
+      margin-top: 2.5rem;
+      padding: 0 3rem;
+    }
 
     a:link,
     a:visited {
@@ -22,7 +47,6 @@
 
       button {
         width: 100%; /* this is for the purchase button that's nested under an <a> */ 
-        
       }
     }
   }
@@ -41,6 +65,10 @@
     cursor: pointer;
     box-shadow: 0 .25rem .25rem rgba($color-black, .3);
     transition: all .2s;
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 1.25rem 1rem;
+    }
 
     &-icon {
       fill: $color-dark-grey;
@@ -85,6 +113,10 @@
 
   &__description {
     flex: 2;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-top: 3rem;
+    }
 
     &-separator {
       margin-top: 2rem;
