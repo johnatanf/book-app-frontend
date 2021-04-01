@@ -15,6 +15,16 @@
     padding: 4rem 6rem;
     margin: 15rem 0;
     box-shadow: 0 .25rem .5rem rgba($color-black, .3);
+
+    @media only screen and (max-width: $bp-small) {
+      flex: 0 0 80%;
+      min-width: 35rem;
+    }
+
+    @media only screen and (max-width: $bp-tiny) {
+      flex: 0 0 90%;
+      min-width: 20rem;
+    }
   }
 
   &__heading {
@@ -36,8 +46,14 @@
   }
 
   &__button-container {
+    display: flex;
+    justify-content: center;
     text-align: center;
     margin-top: 2rem;
+
+    @media only screen and (max-width: $bp-tiny) {
+      flex-direction: column;
+    }
   }
 
   &__button {
