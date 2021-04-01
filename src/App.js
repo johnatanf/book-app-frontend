@@ -55,10 +55,10 @@ const App = () => {
             { !user ? <Redirect to='/' /> : <Books user={user} setUser={setUser} notification={notification} flashNotification={flashNotification} /> }
           </Route>
           <Route path='/login'>
-            { user ? <Redirect to='/books' /> : <Login setUser={setUser} flashNotification={flashNotification} /> }
+            { user ? <Redirect to='/books' /> : <Login setUser={setUser} notification={notification} flashNotification={flashNotification} /> }
           </Route>
           <Route path='/signup'>
-            { user ? <Redirect to ='/books' /> : <SignUp setUser={setUser} flashNotification={flashNotification} /> }
+            { user ? <Redirect to ='/books' /> : <SignUp setUser={setUser} notification={notification} flashNotification={flashNotification} /> }
           </Route>
           <Route path='/'>
             { user ? <Redirect to='/books' /> : <Home /> }

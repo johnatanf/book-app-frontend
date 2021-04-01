@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import Notification from '../Notification';
 import loginService from '../../services/login';
 import usersService from '../../services/users';
 
@@ -29,6 +30,7 @@ const SignUp = props => {
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
+        <Notification notification={props.notification} />
         <h2 className="form__heading">Sign Up</h2>
         <div className="form__field-group">
           <label className="form__field-label" htmlFor="username">Username</label>
