@@ -36,7 +36,7 @@ const Books = ({ user, setUser, notification, flashNotification }) => {
       {books.filter(book => !book.read).length 
       ? (
         <>
-          <h2 className="books__heading">Reading list</h2>
+          <h2 className="books__heading">{`Reading list (${books.filter(book => !book.read).length})`}</h2>
           <BookContainer>
             {books
               .filter(book => !book.read)
@@ -55,7 +55,7 @@ const Books = ({ user, setUser, notification, flashNotification }) => {
       {books.filter(book => book.read).length 
       ? (
         <>
-          <h2 className="books__heading">Already read</h2>
+          <h2 className="books__heading">{`Already read (${books.filter(book => book.read).length})`}</h2>
           <BookContainer>
             {books
               .filter(book => book.read)
