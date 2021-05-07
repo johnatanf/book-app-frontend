@@ -172,9 +172,9 @@ body {
 }
 
 .book-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25rem);
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .book-grid {
@@ -182,7 +182,6 @@ body {
   padding: 2rem 2.5rem;
   margin: 2rem 2rem;
   display: flex;
-  flex: 0 0 21.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

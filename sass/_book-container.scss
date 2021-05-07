@@ -1,5 +1,5 @@
 .book-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25rem);
   justify-content: center;
-  flex-wrap: wrap;
 }
