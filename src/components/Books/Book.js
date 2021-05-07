@@ -3,6 +3,7 @@ import { useRouteMatch, useHistory } from 'react-router-dom';
 import iconSet from "../../assets/selection.json";
 import IcomoonReact, { iconList } from "icomoon-react";
 import Card from '../Card/Card';
+import utilities from '../../utilities';
 import booksService from '../../services/books';
 
 const Book = ({ user, setUser, notification, flashNotification }) => {
@@ -23,9 +24,9 @@ const Book = ({ user, setUser, notification, flashNotification }) => {
         read: !book.read,
       })
       event.target.classList.remove('disabled');
-      flashNotification(`Successfully marked book as ${book.read ? 'unread' : 'read'}!`, 'success');
+      flashNotification(`${utilities.truncateSubtitle(book.title)}: Successfully marked book as ${book.read ? 'unread' : 'read'}!`, 'success');
     } catch (error) {
-      flashNotification('Failed to update book', 'failure');
+      flashNotification(`${utilities.truncateSubtitle(book.title)}: Failed to update book`, 'failure');
     }
   }
   
@@ -36,9 +37,9 @@ const Book = ({ user, setUser, notification, flashNotification }) => {
       event.target.classList.add('disabled');
       await booksService.deleteBook(match.params.id);
       history.push('/books');
-      flashNotification('Successfully removed book from reading list!', 'success');
+      flashNotification(`${utilities.truncateSubtitle(book.title)}: Successfully removed book from reading list!`, 'success');
     } catch (error) {
-      flashNotification('Failed to delete book', 'failure');
+      flashNotification(`${utilities.truncateSubtitle(book.title)}: Failed to delete book`, 'failure');
     }
   }
 
@@ -46,7 +47,7 @@ const Book = ({ user, setUser, notification, flashNotification }) => {
     booksService.retrieveSpecificBook(match.params.id)
       .then(res => setBook(res))
       .catch(e => {
-        flashNotification('Failed to load book', 'failure');
+        flashNotification(`${utilities.truncateSubtitle(book.title)}: Failed to load book`, 'failure');
       })
   }, [])
 
