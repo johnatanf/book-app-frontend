@@ -86,6 +86,10 @@
       .book__button-icon {
         fill: $color-light-grey;
       }
+
+      &:hover {
+        box-shadow: 0 .25rem .5rem rgba($color-black, 1);
+      }
     }
 
     &--purchase {
@@ -94,6 +98,21 @@
 
       .book__button-icon {
         fill: $color-light-grey;
+      }
+
+      &:hover {
+        box-shadow: 0 .25rem .5rem rgba($color-black, 1);
+      }
+    }
+
+    &--purchase-disabled {
+      background-color: $color-dark-grey;
+      text-decoration: line-through;
+      cursor: not-allowed;
+      opacity: 70%;
+
+      &:hover {
+        box-shadow: 0 .25rem .25rem rgba($color-black, .3);
       }
     }
 
@@ -104,10 +123,10 @@
       .book__button-icon {
         fill: $color-light-grey;
       }
-    }
 
-    &:hover {
-      box-shadow: 0 .25rem .5rem rgba($color-black, 1);
+      &:hover {
+        box-shadow: 0 .25rem .5rem rgba($color-black, 1);
+      }
     }
   }
 

@@ -71,7 +71,7 @@ const Book = ({ user, setUser, notification, flashNotification }) => {
             }
             { book 
               ? <a target="_blank" href={book.linkToPurchase}>
-                  <button className="book__button book__button--purchase">
+                  <button className={`book__button book__button--purchase ${!book.linkToPurchase ? 'book__button--purchase-disabled' : ''}`}>
                     <IcomoonReact className="book__button-icon" iconSet={iconSet} icon="cart" />
                     Purchase
                   </button>

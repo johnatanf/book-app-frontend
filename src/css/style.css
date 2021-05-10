@@ -125,12 +125,27 @@ body {
 .book__button--mark .book__button-icon {
   fill: #F7F7FF;
 }
+.book__button--mark:hover {
+  box-shadow: 0 0.25rem 0.5rem black;
+}
 .book__button--purchase {
   background-color: #013220;
   color: #F7F7FF;
 }
 .book__button--purchase .book__button-icon {
   fill: #F7F7FF;
+}
+.book__button--purchase:hover {
+  box-shadow: 0 0.25rem 0.5rem black;
+}
+.book__button--purchase-disabled {
+  background-color: #333;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  opacity: 70%;
+}
+.book__button--purchase-disabled:hover {
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
 }
 .book__button--delete {
   background-color: #FE5F55;
@@ -139,7 +154,7 @@ body {
 .book__button--delete .book__button-icon {
   fill: #F7F7FF;
 }
-.book__button:hover {
+.book__button--delete:hover {
   box-shadow: 0 0.25rem 0.5rem black;
 }
 .book__description {
